@@ -3,6 +3,7 @@ import { ThemeProvider } from "./context/ThemeContext";
 import Login from "./components/Auth/Login";
 import ThemeToggle from "./components/ThemeToggle";
 import EmployeeDashboard from "./components/Dashboard/EmployeeDashboard";
+import AdminDashboard from "./components/Dashboard/AdminDashboard";
 // import { SkeletonWrapper } from "./components/SkeletonWrapper";
 
 export default function App() {
@@ -14,9 +15,9 @@ export default function App() {
           <ThemeToggle />
         </div>
 
-        <EmployeeDashboard />
-
         {/* <Login /> */}
+        {/* <EmployeeDashboard /> */}
+        <AdminDashboard />
 
       </div>
     </ThemeProvider>

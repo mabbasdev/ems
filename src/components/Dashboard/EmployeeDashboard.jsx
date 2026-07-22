@@ -2,23 +2,10 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
-  Building2,
-  Bell,
-  CheckCircle2,
-  Clock,
-  AlertCircle,
-  Menu,
-  X,
-  ListTodo,
   FileText,
   Search,
   ArrowUpRight,
-  Send,
-  LogOut,
-  User,
-  Settings,
 } from "lucide-react";
 import TopNavbar from "./e-components/TopNavbar";
 import MobileSidebar from "./e-components/MobileSidebar";
