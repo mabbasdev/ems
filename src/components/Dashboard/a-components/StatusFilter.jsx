@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const StatusFilter = (props) => {
     return (
         <div>
@@ -23,7 +24,6 @@ const StatusFilter = (props) => {
                 ))}
             </div>
         </div>
-    )
-}
-
+    );
+};
 export default StatusFilter

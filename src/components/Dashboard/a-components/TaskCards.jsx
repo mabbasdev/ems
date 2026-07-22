@@ -1,6 +1,11 @@
-import { Card, CardContent } from '@/components/ui/card'
-import { AlertCircle, CheckCircle2, CheckSquare, Clock } from 'lucide-react'
 import React from 'react'
+import { Card, CardContent, } from "@/components/ui/card";
+import {
+    CheckCircle2,
+    Clock,
+    AlertCircle,
+    CheckSquare,
+} from "lucide-react";
 
 const TaskCards = (props) => {
     return (
@@ -36,7 +41,7 @@ const TaskCards = (props) => {
                     },
                     {
                         id: "completed",
-                        label: "Completed Sprint Tasks",
+                        label: "Completed Tasks",
                         count: props.tasks.filter((t) => t.status === "Completed").length,
                         subtext: "Verified & closed",
                         icon: CheckCircle2,
@@ -68,7 +73,6 @@ const TaskCards = (props) => {
                 ))}
             </div>
         </div>
-    )
-}
-
+    );
+};
 export default TaskCards

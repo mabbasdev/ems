@@ -1,8 +1,8 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Users } from 'lucide-react'
 import React from 'react'
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Users } from "lucide-react";
 
-const TeamList = () => {
+const TeamList = (props) => {
     return (
         <div>
             <div className="space-y-4">
@@ -17,11 +17,14 @@ const TeamList = () => {
                     </CardHeader>
                     <CardContent className="p-4 space-y-3.5">
                         {[
-                            { name: "Muhammad Abbas", role: "Software Engineer Intern", avatar: "MA", activeCount: 2, dept: "Frontend" },
-                            { name: "Asif Khan", role: "Backend Developer", avatar: "AK", activeCount: 1, dept: "API Engineering" },
-                            { name: "Sarah Ahmed", role: "IT Support Lead", avatar: "SA", activeCount: 1, dept: "Operations" },
+                            { name: "Muhammad Abbas", role: "Software Engineer Intern", avatar: "MA", activeCount: `${props.tasks.filter((task) => task.assignee === "Muhammad Abbas").length}`, dept: "Frontend" },
+                            { name: "Asif Khan", role: "Backend Developer", avatar: "AK", activeCount: `${props.tasks.filter((task) => task.assignee === "Asif Khan").length}`, dept: "API Engineering" },
+                            { name: "Sarah Ahmed", role: "IT Support Lead", avatar: "SA", activeCount: `${props.tasks.filter((task) => task.assignee === "Sarah Ahmed").length}`, dept: "Operations" },
                         ].map((member) => (
-                            <div key={member.name} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800/80">
+                            <div
+                                key={member.name}
+                                className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50 dark:bg-slate-950/50 border border-slate-100 dark:border-slate-800/80"
+                            >
                                 <div className="flex items-center gap-2.5">
                                     <div className="h-8 w-8 rounded-full bg-slate-900 dark:bg-emerald-600 text-white text-xs font-bold flex items-center justify-center">
                                         {member.avatar}
@@ -41,7 +44,7 @@ const TeamList = () => {
                 </Card>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default TeamList

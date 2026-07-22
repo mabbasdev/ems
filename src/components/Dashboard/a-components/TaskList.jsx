@@ -1,6 +1,6 @@
-import { Button } from '@/components/ui/button'
-import { Trash2 } from 'lucide-react'
-import React from 'react'
+import React from 'react';
+import { Button } from "@/components/ui/button";
+import { Trash2, Edit2 } from "lucide-react"; // <--- Added Edit2
 
 const TaskList = (props) => {
     return (
@@ -17,10 +17,18 @@ const TaskList = (props) => {
                                     <span className="text-[10px] font-mono font-bold text-slate-400">
                                         {task.id}
                                     </span>
-                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full border ${props.getPriorityBadge(task.priority)}`}>
+                                    <span
+                                        className={`px-2 py-0.5 text-[10px] font-bold rounded-full border ${props.getPriorityBadge(
+                                            task.priority
+                                        )}`}
+                                    >
                                         {task.priority}
                                     </span>
-                                    <span className={`px-2 py-0.5 text-[10px] font-bold rounded-full border ${props.getStatusBadge(task.status)}`}>
+                                    <span
+                                        className={`px-2 py-0.5 text-[10px] font-bold rounded-full border ${props.getStatusBadge(
+                                            task.status
+                                        )}`}
+                                    >
                                         {task.status}
                                     </span>
                                 </div>
@@ -28,19 +36,37 @@ const TaskList = (props) => {
                                     {task.title}
                                 </h4>
                                 <div className="flex items-center gap-3 text-[11px] text-slate-500 dark:text-slate-400">
-                                    <span>Assignee: <strong className="text-slate-700 dark:text-slate-300">{task.assignee}</strong></span>
+                                    <span>
+                                        Assignee:{" "}
+                                        <strong className="text-slate-700 dark:text-slate-300">
+                                            {task.assignee}
+                                        </strong>
+                                    </span>
                                     <span>•</span>
                                     <span>Dept: {task.department}</span>
                                 </div>
                             </div>
 
                             {/* Actions */}
-                            <div className="flex items-center gap-2 shrink-0">
+                            <div className="flex items-center gap-1 shrink-0">
+                                {/* EDIT BUTTON */}
+                                <Button
+                                    onClick={() => props.handleOpenEditModal(task)}
+                                    size="icon"
+                                    variant="ghost"
+                                    className="h-8 w-8 text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/30 transition-colors"
+                                    title="Edit Task"
+                                >
+                                    <Edit2 className="w-4 h-4" />
+                                </Button>
+
+                                {/* DELETE BUTTON */}
                                 <Button
                                     onClick={() => props.handleDeleteTask(task.id)}
                                     size="icon"
                                     variant="ghost"
                                     className="h-8 w-8 text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-colors"
+                                    title="Delete Task"
                                 >
                                     <Trash2 className="w-4 h-4" />
                                 </Button>
@@ -54,7 +80,7 @@ const TaskList = (props) => {
                 )}
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default TaskList
+export default TaskList;
