@@ -82,10 +82,10 @@ export default function AdminDashboard() {
     const navItems = [
         { id: "dashboard", label: "Operations Hub", icon: LayoutDashboard, badge: null },
         { id: "analytics", label: "Sprint Analytics", icon: BarChart3, badge: "Soon" },
-        { id: "team", label: "Team Directory", icon: UserCheck, badge: null },
+        { id: "team", label: "Team Directory", icon: UserCheck, badge: "Soon" },
         { id: "audit", label: "System Audit Logs", icon: FileText, badge: "Soon" },
-        { id: "access", label: "Access & Roles", icon: KeyRound, badge: null },
-        { id: "settings", label: "Portal Settings", icon: Settings, badge: null },
+        { id: "access", label: "Access & Roles", icon: KeyRound, badge: "Soon" },
+        { id: "settings", label: "Portal Settings", icon: Settings, badge: "Soon" },
     ];
 
     // New Task Form State
