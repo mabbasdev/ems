@@ -395,6 +395,27 @@ export default function AdminDashboard() {
                                     );
                                 })}
                             </div>
+                            {/* User Info Footer */}
+                            <div className="pt-4 border-t border-slate-100 dark:border-slate-800 space-y-3 bottom-5 absolute">
+                                <div
+                                    className={`flex items-center ${isSidebarCollapsed ? "justify-center" : "gap-2.5 px-2"
+                                        }`}
+                                >
+                                    <div className="h-8 w-8 rounded-full bg-slate-900 dark:bg-emerald-600 text-white font-bold text-xs flex items-center justify-center border border-slate-300 dark:border-slate-700 shrink-0">
+                                        MA
+                                    </div>
+                                    {!isSidebarCollapsed && (
+                                        <div className="overflow-hidden">
+                                            <p className="text-xs font-bold text-slate-900 dark:text-slate-100 truncate">
+                                                Muhammad Abbas
+                                            </p>
+                                            <p className="text-[10px] text-slate-400 truncate">
+                                                System Administrator
+                                            </p>
+                                        </div>
+                                    )}
+                                </div>
+                            </div>
                         </div>
                     </aside>
                 </div>
