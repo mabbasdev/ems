@@ -115,7 +115,7 @@ export default function EmployeeDashboard(props) {
 
   return (
     <div className="h-screen w-full bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 font-sans transition-colors duration-300 flex flex-col overflow-hidden">
-      {/* FIXED TOP NAVBAR */}
+      {/* TOP NAVBAR */}
       <div className="shrink-0 z-40">
         <TopNavbar
           setMobileMenuOpen={setMobileMenuOpen}

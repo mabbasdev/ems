@@ -103,7 +103,7 @@ const TopNavbar = (props) => {
         </div>
 
         <div className="flex items-center gap-2.5 sm:gap-3">
-          {/* NOTIFICATION BELL POPOVER */}
+          {/* RESPONSIVE NOTIFICATION POPOVER */}
           <div className="relative">
             <button
               onClick={() => setNotificationsOpen(!notificationsOpen)}
@@ -118,11 +118,14 @@ const TopNavbar = (props) => {
 
             {notificationsOpen && (
               <>
+                {/* Backdrop overlay for mobile touch closing */}
                 <div
-                  className="fixed inset-0 z-40"
+                  className="fixed inset-0 z-40 bg-slate-950/20 sm:bg-transparent backdrop-blur-[1px] sm:backdrop-blur-none"
                   onClick={() => setNotificationsOpen(false)}
                 />
-                <div className="absolute right-0 mt-2 w-80 sm:w-88 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                
+                {/* Responsive Popover Container */}
+                <div className="fixed sm:absolute top-16 sm:top-auto right-4 sm:right-0 mt-0 sm:mt-2 w-[calc(100vw-2rem)] sm:w-88 max-w-sm bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl sm:shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
                   <div className="p-3.5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100">
@@ -144,7 +147,7 @@ const TopNavbar = (props) => {
                     )}
                   </div>
 
-                  <div className="max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800">
+                  <div className="max-h-[65vh] sm:max-h-80 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800">
                     {notifications.length > 0 ? (
                       notifications.map((item) => (
                         <div
@@ -156,16 +159,16 @@ const TopNavbar = (props) => {
                           }`}
                         >
                           {getNotificationIcon(item.type)}
-                          <div className="flex-1 space-y-0.5">
+                          <div className="flex-1 space-y-0.5 min-w-0">
                             <div className="flex items-center justify-between gap-1">
-                              <p className="font-bold text-slate-900 dark:text-slate-100">
+                              <p className="font-bold text-slate-900 dark:text-slate-100 truncate">
                                 {item.title}
                               </p>
-                              <span className="text-[10px] text-slate-400">
+                              <span className="text-[10px] text-slate-400 shrink-0">
                                 {item.time}
                               </span>
                             </div>
-                            <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed">
+                            <p className="text-slate-500 dark:text-slate-400 text-[11px] leading-relaxed break-words">
                               {item.message}
                             </p>
                           </div>
@@ -204,7 +207,7 @@ const TopNavbar = (props) => {
             onClick={() => props.setIsCreateModalOpen(true)}
             className="bg-emerald-700 hover:bg-emerald-800 dark:bg-emerald-600 dark:hover:bg-emerald-700 text-white text-xs font-semibold px-3.5 py-2 rounded-xl flex items-center gap-1.5 shadow-xs transition-all active:scale-95"
           >
-            <Plus className="w-4 h-4" /> Assign New Task
+            <Plus className="w-4 h-4" /> <span className="hidden sm:inline">Assign New Task</span><span className="sm:hidden">Assign</span>
           </Button>
         </div>
       </div>
